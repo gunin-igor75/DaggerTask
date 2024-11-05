@@ -3,8 +3,14 @@ package com.github.gunin_igor75.daggertask
 import android.app.Application
 import com.github.gunin_igor75.daggertask.example.AppComponent
 import com.github.gunin_igor75.daggertask.example.DaggerAppComponent
+import com.github.gunin_igor75.daggertask.example.DispatcherIODeps
+import com.github.gunin_igor75.daggertask.example.ScopeDeps
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 
-class App : Application() {
+class App : Application(), DispatcherIODeps {
 
     private var _appComponent: AppComponent? = null
 
@@ -17,8 +23,21 @@ class App : Application() {
         super.onCreate()
         _appComponent = DaggerAppComponent.builder()
             .context(this)
+            .scopeDeps(ScopeDepsImpl())
+            .dispatcherDeps(this)
             .build()
     }
+
+    private inner class ScopeDepsImpl : ScopeDeps {
+        override fun scope(): CoroutineScope {
+            return CoroutineScope(SupervisorJob())
+        }
+
+    }
+
+    override val dispatcher: CoroutineDispatcher
+        get() = Dispatchers.IO
+
 }
 
 

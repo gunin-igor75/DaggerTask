@@ -8,11 +8,14 @@ import dagger.Component
 import dagger.Module
 import javax.inject.Named
 import javax.inject.Qualifier
+import javax.inject.Scope
 
 
 @Component(
-    modules = [AppModule::class]
+    modules = [AppModule::class],
+    dependencies = [ScopeDeps::class, DispatcherIODeps::class]
 )
+@AppScope
 interface AppComponent{
 
     @Component.Builder
@@ -20,6 +23,10 @@ interface AppComponent{
         fun context(
             @BindsInstance context: Context
         ): Builder
+
+        fun scopeDeps(scopeDeps: ScopeDeps): Builder
+
+        fun dispatcherDeps(dispatcherIODeps: DispatcherIODeps): Builder
 
         fun build(): AppComponent
     }
@@ -55,3 +62,6 @@ annotation class Logitech
 @Qualifier
 @Retention(AnnotationRetention.RUNTIME)
 annotation class A4Tech
+
+@Scope
+annotation class AppScope

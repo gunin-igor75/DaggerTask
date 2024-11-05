@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         (application as App).appComponent.inject(this)
         Log.d(TAG, computer.toString())
         val mousePadCurrent = mousePad.get()
-
+        Log.d(TAG, mousePadCurrent.toString())
     }
 
     @Inject
