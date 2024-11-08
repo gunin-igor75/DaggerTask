@@ -11,6 +11,8 @@ activity = "1.9.3"
 constraintlayout = "2.2.0"
 dagger = "2.48"
 ksp = "1.9.0-1.0.12"
+retrofit = "2.9.0"
+okhttp = "4.12.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -25,7 +27,12 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 ksp-compiler = {group = "com.google.dagger", name = "dagger-compiler", version.ref = "dagger"}
 dagger = {group = "com.google.dagger", name = "dagger", version.ref = "dagger"}
 
+okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-gsonConverter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp = {id = "com.google.devtools.ksp", version.ref = "ksp"}
+android-library = { id = "com.android.library", version.ref = "agp" }
