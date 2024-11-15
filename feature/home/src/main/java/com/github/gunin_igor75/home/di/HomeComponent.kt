@@ -1,6 +1,7 @@
 package com.github.gunin_igor75.home.di
 
 import android.content.Context
+import com.github.gunin_igor75.home.presentation.HomeFragment
 import dagger.Component
 import javax.inject.Scope
 
@@ -16,6 +17,8 @@ interface HomeComponent: HomeDependenciesProvider {
         fun build(): HomeComponent
 
     }
+
+    fun inject(homeFragment: HomeFragment)
 
     companion object {
 
