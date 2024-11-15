@@ -6,9 +6,7 @@ import javax.inject.Inject
 class HomeRepository @Inject constructor(
     private val networkApi: NetworkApi
 ) {
+    fun getInfoServerFirst() = networkApi.retrofit()
 
-    fun getInfoServerFirst() {
-        val retrofit = networkApi.retrofit()
-    }
-
+    fun getInfoServerSecond() = networkApi.retrofitOther()
 }

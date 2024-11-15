@@ -46,10 +46,6 @@ dependencies {
     implementation(libs.retrofit.core)
     implementation(libs.retrofit.gsonConverter)
 
-    ksp(libs.room.ksp)
-    implementation(libs.room.core)
-    implementation(libs.room.kotlin.ext)
-
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

@@ -13,7 +13,6 @@ dagger = "2.48"
 ksp = "1.9.0-1.0.12"
 retrofit = "2.9.0"
 okhttp = "4.12.0"
-room = "2.6.1"
 
 
 [libraries]
@@ -32,11 +31,6 @@ dagger = {group = "com.google.dagger", name = "dagger", version.ref = "dagger"}
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-gsonConverter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
-
-room-core = {group = "androidx.room", name = "room-runtime", version.ref = "room"}
-room-ksp = {group = "androidx.room", name = "room-compiler", version.ref = "room"}
-room-kotlin-ext = {group = "androidx.room", name = "room-ktx", version.ref = "room"}
-
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

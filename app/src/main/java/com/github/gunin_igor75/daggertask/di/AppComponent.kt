@@ -27,6 +27,19 @@ interface AppComponent {
 
     fun getNetworkApi(): NetworkApi
 
+    companion object{
+        private var appComponent: AppComponent? = null
+
+        fun init(context: Context): AppComponent {
+            appComponent?.let { return it }
+            val instance = DaggerAppComponent
+                .builder()
+                .context(context)
+                .build()
+            appComponent = instance
+            return instance
+        }
+    }
 }
 
 
